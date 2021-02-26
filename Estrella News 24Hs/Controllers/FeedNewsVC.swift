@@ -24,19 +24,19 @@ class FeedNewsVC: UIViewController {
 //        layout.itemSize = CGSize(width: 60, height: 60)
         
         colle = UICollectionView(frame: self.view.frame, collectionViewLayout: UICollectionViewFlowLayout())
-        colle.register(NewsRegularCollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+        colle.register(NoticiaCollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
         colle.backgroundColor = UIColor.white
         
         
         view.addSubview(colle)
         
-        colle.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        colle.backgroundColor = .lightGray
         colle.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             colle.topAnchor.constraint(equalTo: view.topAnchor, constant: (navigationController?.navigationBar.frame.height)! + 10) ,
-            colle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 4),
-            colle.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -4),
+            colle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
+            colle.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0),
             colle.heightAnchor.constraint(equalToConstant: view.frame.height - (tabBarController?.tabBar.frame.size.height)! )
         ])
         
@@ -71,7 +71,7 @@ extension FeedNewsVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         
         // TAMANO DE LA CELULA
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let width = view.frame.width - 20
+            let width = view.frame.width 
             return CGSize(width: width, height: 100)
         }
     
